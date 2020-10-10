@@ -35,14 +35,14 @@ const styles =theme => (
   {
     root : {
       width: '100%',
-      marginTop: theme.spacing.unit * 3,
+      marginTop: theme.spacing(0.33),
       overflowX: "auto"
     },
     table:{
       minWidth: 1080
     },
     progress: {
-      morgin: theme.spacing.unit *2
+      morgin: theme.spacing(0.5)
     }
   }
 )
@@ -100,11 +100,13 @@ class App extends Component{
             <TableCell>이름</TableCell>
             <TableCell>생년</TableCell>
             <TableCell>성별</TableCell>
+            <TableCell>설정</TableCell>
           </TableRow>
 
         </TableHead>
         <TableBody>         
-            {this.state.customers ? this.state.customers.map( c => { return(<Customer key={c.id} id={c.id} image={c.image} name={c.name} birth={c.birth} gender={c.gender}/> ); 
+            {this.state.customers ? this.state.customers.map( c => { 
+              return(<Customer stateRefresh={this.stateRefresh}key={c.id} id={c.id} image={c.image} name={c.name} birth={c.birth} gender={c.gender}/> ); 
             }) : 
             <TableRow>
               <TableCell colSpan = "5" align= "center">
